@@ -56,10 +56,10 @@ This project is just getting started! Here's what we have planned next:
 
 ## 🎮 Try It Out!
 
-Are you ready to challenge your coding skills and have a laugh along the way? **[Play Now](#)** and see how well you know your programming languages!
+Are you ready to challenge your coding skills and have a laugh along the way? **[Play Now](https://zephyrusblaze.github.io/CodeMania/)** and see how well you know your programming languages!
 
 ---
 
 ## 📜 License
 
-This project is licensed under the MIT License—see the [LICENSE](#) file for details.
+This project is licensed under the MIT License—see the [LICENSE](https://github.com/ZephyrusBlaze/CodeMania/blob/main/LICENSE) file for details.
