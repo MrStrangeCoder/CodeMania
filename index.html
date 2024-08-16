@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun with Programming</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #1a202c;
+            color: #f7fafc;
+            font-family: 'Inter', sans-serif;
+        }
+        .btn {
+            background-color: #4299e1;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #3182ce;
+        }
+        .btn-small {
+            background-color: #2d3748;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-small:hover {
+            background-color: #4a5568;
+        }
+        .hidden {
+            display: none;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out forwards;
+        }
+        .slide-in {
+            animation: slideIn 0.5s ease-in-out forwards;
+        }
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            align-items: center;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .btn-back {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        .header-container {
+            background-color: #2d3748;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .header-container h1 {
+            font-size: 3rem;
+        }
+        .header-container p {
+            font-size: 1.5rem;
+            margin-top: 10px;
+        }
+        pre {
+            text-align: left;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            max-height: 300px;
+            overflow-y: auto;
+            margin: 0;
+        }
+        .back-container {
+            display: inline-block;
+            width: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mx-auto p-8 text-center">
+        <!-- Home Screen -->
+        <div id="home-screen" class="fade-in">
+            <div class="header-container mb-12">
+                <h1 class="font-bold">Fun with Programming</h1>
+                <p>Explore and enjoy coding activities!</p>
+            </div>
+            <div class="btn-group">
+                <button onclick="startGame()" class="btn">Guess the Programming Language</button>
+                <button onclick="showMeme()" class="btn">View Programming Memes</button>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen" class="hidden fade-in">
+            <button onclick="backToMenu()" class="btn-small btn-back">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/left.png" width="16" height="16" alt="Back">
+                <span>Back to Menu</span>
+            </button>
+            <div id="score" class="text-2xl mb-4 slide-in">Score: 0</div>
+            <div id="code-block" class="bg-gray-800 p-6 rounded-lg shadow-lg mb-8 slide-in">
+                <pre id="code" class="overflow-auto"></pre>
+            </div>
+            <div id="options" class="grid grid-cols-2 gap-4 slide-in">
+                <!-- Buttons will be added dynamically -->
+            </div>
+            <div id="result" class="text-center mt-8"></div>
+        </div>
+
+        <!-- Meme Screen -->
+        <div id="meme-screen" class="hidden fade-in text-center">
+            <button onclick="backToMenu()" class="btn-small btn-back">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/left.png" width="16" height="16" alt="Back">
+                <span>Back to Menu</span>
+            </button>
+            <h2 class="text-4xl font-bold mb-8 slide-in">Here's a Programming Meme for You</h2>
+            <img id="meme-image" src="" alt="Programming Meme" class="mx-auto mb-4 rounded-lg shadow-lg slide-in" style="max-height: 400px;">
+            <div class="btn-group slide-in">
+                <button onclick="showMeme()" class="btn">Next Meme</button>
+            </div>
+        </div>
+
+        <!-- Game Over Screen -->
+        <div id="game-over-screen" class="hidden fade-in text-center">
+            <h2 class="text-4xl font-bold mb-8 slide-in">Game Over</h2>
+            <p id="final-score" class="text-2xl mb-4 slide-in">Final Score: 0</p>
+            <div class="btn-group slide-in">
+                <button onclick="backToMenu()" class="btn">Back to Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
